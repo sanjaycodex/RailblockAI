@@ -822,7 +822,7 @@ export const api = {
 
   // 9. AI CHAT (Groq Integration)
   async sendChatMessage(messages, context = null) {
-    const BACKEND_URL = 'http://127.0.0.1:8000';
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:8000';
     
     console.log('[API] sendChatMessage called with:', {
       messageCount: messages.length,

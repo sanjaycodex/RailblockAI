@@ -16,13 +16,14 @@ class Settings:
     SUPABASE_SERVICE_KEY: str = os.getenv("SUPABASE_SERVICE_KEY", os.getenv("VITE_SUPABASE_ANON_KEY", ""))
     
     HOST: str = os.getenv("BACKEND_HOST", "127.0.0.1")
-    PORT: int = int(os.getenv("BACKEND_PORT", "8000"))
+    PORT: int = int(os.getenv("BACKEND_PORT", os.getenv("PORT", "8000")))
     
     CORS_ORIGINS: list[str] = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
+        "https://*.vercel.app",  # All Vercel deployments
         "*"
     ]
 
